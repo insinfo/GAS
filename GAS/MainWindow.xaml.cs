@@ -23,5 +23,11 @@ namespace GAS
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            txtTeste.Text = "asdas";
+            MessageBox.Show("asds");
+        }
     }
 }
