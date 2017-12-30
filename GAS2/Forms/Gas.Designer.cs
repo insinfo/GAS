@@ -31,7 +31,8 @@
             this.btnExecute = new System.Windows.Forms.Button();
             this.txtResults = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnOpenDesigner = new System.Windows.Forms.Button();
+            this.BtnOpenUML = new System.Windows.Forms.Button();
+            this.BtnShowDesigner = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnExecute
@@ -75,35 +76,54 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "GAS pre alpha version";
             // 
-            // btnOpenDesigner
+            // BtnOpenUML
             // 
-            this.btnOpenDesigner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btnOpenDesigner.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnOpenDesigner.FlatAppearance.BorderSize = 0;
-            this.btnOpenDesigner.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnOpenDesigner.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnOpenDesigner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenDesigner.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenDesigner.ForeColor = System.Drawing.Color.White;
-            this.btnOpenDesigner.Location = new System.Drawing.Point(460, 16);
-            this.btnOpenDesigner.Name = "btnOpenDesigner";
-            this.btnOpenDesigner.Size = new System.Drawing.Size(144, 51);
-            this.btnOpenDesigner.TabIndex = 3;
-            this.btnOpenDesigner.Text = "Designer";
-            this.btnOpenDesigner.UseVisualStyleBackColor = false;
-            this.btnOpenDesigner.Click += new System.EventHandler(this.btnOpenDesigner_Click);
+            this.BtnOpenUML.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BtnOpenUML.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnOpenUML.FlatAppearance.BorderSize = 0;
+            this.BtnOpenUML.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnOpenUML.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.BtnOpenUML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOpenUML.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnOpenUML.ForeColor = System.Drawing.Color.White;
+            this.BtnOpenUML.Location = new System.Drawing.Point(460, 16);
+            this.BtnOpenUML.Name = "BtnOpenUML";
+            this.BtnOpenUML.Size = new System.Drawing.Size(144, 51);
+            this.BtnOpenUML.TabIndex = 3;
+            this.BtnOpenUML.Text = "UML";
+            this.BtnOpenUML.UseVisualStyleBackColor = false;
+            this.BtnOpenUML.Click += new System.EventHandler(this.BtnOpenDesigner_Click);
             // 
-            // Main
+            // BtnShowDesigner
+            // 
+            this.BtnShowDesigner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BtnShowDesigner.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnShowDesigner.FlatAppearance.BorderSize = 0;
+            this.BtnShowDesigner.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnShowDesigner.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.BtnShowDesigner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShowDesigner.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnShowDesigner.ForeColor = System.Drawing.Color.White;
+            this.BtnShowDesigner.Location = new System.Drawing.Point(310, 16);
+            this.BtnShowDesigner.Name = "BtnShowDesigner";
+            this.BtnShowDesigner.Size = new System.Drawing.Size(144, 51);
+            this.BtnShowDesigner.TabIndex = 4;
+            this.BtnShowDesigner.Text = "Designer";
+            this.BtnShowDesigner.UseVisualStyleBackColor = false;
+            this.BtnShowDesigner.Click += new System.EventHandler(this.BtnShowDesigner_Click);
+            // 
+            // Gas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(766, 426);
-            this.Controls.Add(this.btnOpenDesigner);
+            this.Controls.Add(this.BtnShowDesigner);
+            this.Controls.Add(this.BtnOpenUML);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtResults);
             this.Controls.Add(this.btnExecute);
-            this.Name = "Main";
+            this.Name = "Gas";
             this.Text = "GAS";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -115,7 +135,8 @@
         private System.Windows.Forms.Button btnExecute;
         private System.Windows.Forms.TextBox txtResults;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnOpenDesigner;
+        private System.Windows.Forms.Button BtnOpenUML;
+        private System.Windows.Forms.Button BtnShowDesigner;
     }
 }
 

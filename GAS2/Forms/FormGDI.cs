@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GAS2
 {
-    public partial class Teste : Form
+    public partial class FormGDI : Form
     {
-        public Teste()
+        public FormGDI()
         {
             InitializeComponent();
         }

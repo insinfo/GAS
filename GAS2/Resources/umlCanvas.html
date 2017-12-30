@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CanvasUML</title>
+    <meta name="description" content="CanvasUML">
+    <meta name="author" content="Isaque Neves">
+    <script type="text/javascript" src="jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        function CanvasUML(idContainer) {
+            this.correntMousePositionX = 0;
+            this.correntMousePositionY = 0;
+            this.startMousePositionX = 0;
+            this.startMousePositionY = 0;
+            this.isDragging = false;
+            this.elementSelected = null;
+            this.isMouseOutCanvas = false;
+            this.container = document.getElementById(idContainer);
+            this.clientWidth = document.documentElement.clientWidth;
+            this.clientHeight = document.documentElement.clientHeight;
+            this.secEleWidth = 0;
+            this.secEleHeight = 0;
+        }
+        CanvasUML.prototype.init = function () {
+            var self = this;
+            this.events();
+        };
+        CanvasUML.prototype.events = function(){
+            var self = this;
+            //mouse click event
+            this.container.addEventListener("mousedown", function (e) {
+                //e.preventDefault();
+                self.dragMouseDown(e);
+
+            }, false);
+            //mouse move event
+            window.addEventListener("mousemove", function (e) {
+                e.preventDefault();
+                self.elementDrag(e);
+            }, false);
+
+            window.addEventListener("mouseup", function (e) {
+                //e.preventDefault();
+                self.isDragging = false;
+                //$(self.elementSelected).css("opacity","1");
+                self.elementSelected = null;
+            }, false);
+            window.addEventListener("resize", function (e) {
+            }, false);
+            window.addEventListener("mouseover", function (e) {
+                self.isMouseOutCanvas = true;
+            }, false);
+            window.addEventListener("mouseout", function (e) {
+                self.isMouseOutCanvas = false;
+            }, false);
+        };
+        CanvasUML.prototype.dragMouseDown = function (e) {
+            var self = this;
+            self.startMousePositionX = e.clientX;
+            self.startMousePositionY = e.clientY;
+            this.clientWidth = document.documentElement.clientWidth;
+            this.clientHeight = document.documentElement.clientHeight;
+            var correntElement = $(e.target).closest(".draggableElement")[0];
+            if (correntElement) {
+                //$(correntElement).css("opacity","0.5");
+                self.elementSelected = correntElement;
+                self.secEleWidth = correntElement.offsetWidth;
+                self.secEleHeight = correntElement.offsetHeight;
+                self.isDragging = true;
+            }
+        };
+        CanvasUML.prototype.elementDrag = function (e) {
+            var self = this;
+            self.correntMousePositionX = e.clientX;
+            self.correntMousePositionY = e.clientY;
+
+            if (self.isDragging) {
+                var dx = self.startMousePositionX - self.correntMousePositionX;
+                var dy = self.startMousePositionY - self.correntMousePositionY;
+                // set the element's new position:
+                var positionX = (self.elementSelected.offsetLeft - dx);
+                var positionY = (self.elementSelected.offsetTop - dy);
+                self.elementSelected.style.top = positionY + "px";
+                self.elementSelected.style.left = positionX + "px";
+
+                self.startMousePositionX = e.clientX;
+                self.startMousePositionY = e.clientY;
+            }
+        };
+        CanvasUML.prototype.getCorrentMousePos = function (e) {
+            return {
+                "x": self.correntMousePositionX,
+                "y": self.correntMousePositionY
+            };
+        }
+        CanvasUML.prototype.setElementPosition = function (element, x, y) {
+            element.style.top = this.getElePosY(element) + y + "px";
+            element.style.left = this.getElePosX(element) + x + "px";
+        };
+        CanvasUML.prototype.getElePosX = function (ele) {
+            var str = ele.style.left;
+            return parseInt(str.substring(0, str.length - 2));
+        };
+        CanvasUML.prototype.getElePosY = function (ele) {
+            var str = ele.style.top;
+            return parseInt(str.substring(0, str.length - 2));
+        };
+
+        window.onload = function (event) {
+            var canvasUML = new CanvasUML("viewPort");
+            canvasUML.init();
+        };
+
+        function preventScroll(elementId) {
+            let element = document.getElementById(elementId);
+            element.onscroll = function () {
+                element.scrollLeft = 0;
+                element.scrollTop = 0;
+            };
+        }
+
+        function centerScroll() {
+            let obj = document.getElementsByTagName("body")[0];
+            obj.scrollLeft = 456; //largura da janela  dividido pra 2
+        }
+
+        function getRealElementPosition(el) {
+            let xPos = 0;
+            let yPos = 0;
+
+            while (el) {
+                if (el.tagName === "BODY") {
+                    // deal with browser quirks with body/window/document and page scroll
+                    let xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+                    let yScroll = el.scrollTop || document.documentElement.scrollTop;
+
+                    xPos += (el.offsetLeft - xScroll + el.clientLeft);
+                    yPos += (el.offsetTop - yScroll + el.clientTop);
+                } else {
+                    // for all other non-BODY elements
+                    xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+                    yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+                }
+
+                el = el.offsetParent;
+            }
+            return {
+                x: xPos,
+                y: yPos
+            };
+        }
+
+        function createLineElement(x, y, length, angle) {
+            var line = document.createElement("div");
+            var styles = 'border: 1px solid black; '
+                + 'width: ' + length + 'px; '
+                + 'height: 0px; '
+                + '-moz-transform: rotate(' + angle + 'rad); '
+                + '-webkit-transform: rotate(' + angle + 'rad); '
+                + '-o-transform: rotate(' + angle + 'rad); '
+                + '-ms-transform: rotate(' + angle + 'rad); '
+                + 'position: absolute; '
+                + 'top: ' + y + 'px; '
+                + 'left: ' + x + 'px; ';
+            line.setAttribute('style', styles);
+            return line;
+        }
+
+        function createLine(x1, y1, x2, y2) {
+            var a = x1 - x2,
+                b = y1 - y2,
+                c = Math.sqrt(a * a + b * b);
+
+            var sx = (x1 + x2) / 2,
+                sy = (y1 + y2) / 2;
+
+            var x = sx - c / 2,
+                y = sy;
+
+            var alpha = Math.PI - Math.atan2(-b, a);
+
+            return createLineElement(x, y, c, alpha);
+        }
+
+        /*
+          window.scrollTo(
+           (document.body.offsetWidth -document.documentElement.offsetWidth )/2,
+           (document.body.offsetHeight-document.documentElement.offsetHeight)/2
+          );*/
+    </script>
+</head>
+
+<body style="
+background:rgb(255, 255, 255);
+width:1920px;
+height:1080px;
+display:block;
+margin:0;
+padding:0;
+">
+
+<div id="viewPort" style="
+background:rgb(255,231,231);
+width:1920px;
+height:1080px;
+display:block;
+position:absolute;
+z-index: 5;
+top:0;
+left:0;
+margin:0;
+padding:0;
+">
+    <div class="draggableElement" style="
+            background:rgb(30,110,255);
+            width:auto;
+            height:auto;
+            min-width: 150px;
+            min-height: 200px;
+            display:block;
+            position:absolute;
+            z-index: 10;
+            top:50px;
+            left:50px;
+            color:#fff;
+            margin:0;
+            padding:0;
+            border-radius: 10px;
+            overflow: hidden;
+        ">
+        <div class="className" style="
+              margin:0;
+              padding-top:5px;
+              padding-left: 8px;
+              padding-bottom: 5px;
+              background: rgba(0,0,0,0.42);
+              border-bottom: solid 1px rgba(255,255,255,0.51);
+              display:block;
+              font-family: 'Trebuchet MS';
+              font-size: 18px;
+              font-weight: normal;
+              ">
+            Usuario
+        </div>
+        <ul class="classPropertyContainer" style="list-style:none;margin: 0;padding: 5px;
+         font-family: 'Trebuchet MS';border-bottom: solid 1px rgba(255,255,255,0.51);">
+            <li style="padding-left: 2px;" >idPessoa</li>
+            <li style="padding-left: 2px;" >nome</li>
+        </ul>
+        <ul class="classMethodContainer" style="list-style:
+        none;margin: 0;padding: 5px;font-family: 'Trebuchet MS';">
+            <li style="padding-left: 2px;">idPessoa</li>
+            <li style="padding-left: 2px;">nome</li>
+        </ul>
+    </div>
+
+</div>
+</body>
+
+</html>

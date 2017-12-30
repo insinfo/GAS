@@ -40,6 +40,9 @@
     <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
       <HintPath>..\packages\AngleSharp.0.9.9\lib\net45\AngleSharp.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetBrowser">
+      <HintPath>..\..\vendor\dotnetbrowser-1.14\Library\DotNetBrowser.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.6.10.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.6.10\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
@@ -89,29 +92,38 @@
     <Compile Include="Designer\IGraphicObject.cs" />
     <Compile Include="Designer\Point.cs" />
     <Compile Include="Designer\RectangleGraphic.cs" />
-    <Compile Include="Designer\ViewPort.cs">
+    <Compile Include="Designer\CanvasGDI.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="Forms\FormChrome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="Forms\FormChrome.Designer.cs">
+      <DependentUpon>FormChrome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Gas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Gas.Designer.cs">
+      <DependentUpon>Gas.cs</DependentUpon>
     </Compile>
     <Compile Include="My\Computer.cs" />
     <Compile Include="Parse\BuilderPHP.cs" />
     <Compile Include="Parse\TemplatesPHP.cs" />
-    <Compile Include="Parse\Util.cs" />
+    <Compile Include="Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Teste.cs">
+    <Compile Include="Forms\FormGDI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Teste.Designer.cs">
-      <DependentUpon>Teste.cs</DependentUpon>
+    <Compile Include="Forms\FormGDI.Designer.cs">
+      <DependentUpon>FormGDI.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormChrome.resx">
+      <DependentUpon>FormChrome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Gas.resx">
+      <DependentUpon>Gas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -123,8 +135,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Teste.resx">
-      <DependentUpon>Teste.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormGDI.resx">
+      <DependentUpon>FormGDI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
@@ -138,7 +150,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="teamdev.licenses" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Hunspellx64.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

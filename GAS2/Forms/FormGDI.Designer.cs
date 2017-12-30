@@ -1,6 +1,6 @@
 ﻿namespace GAS2
 {
-    partial class Teste
+    partial class FormGDI
     {
         /// <summary>
         /// Required designer variable.

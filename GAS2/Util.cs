@@ -8,6 +8,7 @@ using System.Linq;
 using System.Data;
 using System.IO;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace GAS2
 {
@@ -185,7 +186,7 @@ namespace GAS2
             foreach (System.IO.DirectoryInfo subDirectory in directory.GetDirectories()) subDirectory.Delete(true);
         }
 
-        private bool LaunchFolderView(string p_Filename)
+        public static bool LaunchFolderView(string p_Filename)
         {
             bool l_result = false;
 
@@ -224,6 +225,46 @@ namespace GAS2
             }
 
             return l_result;
+        }
+
+        public static string GetEmbeddedResource(string ns, string res)
+        {
+            using (var reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(string.Format("{0}.{1}", ns, res))))
+            {
+                return reader.ReadToEnd();
+            }
+        }
+
+        public static void CreateTextFileAdv(string fileContent,string fileName,string extencion, string directory)
+        {
+            string path = directory+"/"+ fileName +"."+ extencion;
+
+            //if (!File.Exists(path))
+            //{
+                // Create the file.
+                using (FileStream fs = File.Create(path))
+                {
+                    Byte[] info = new UTF8Encoding(true).GetBytes(fileContent);
+
+                    // Add some information to the file.
+                    fs.Write(info, 0, info.Length);
+                }
+           // }
+        }
+
+        public static string OpenTextFile(string filePath)
+        {
+            // Open the stream and read it back.
+            using (StreamReader sr = File.OpenText(filePath))
+            {
+                //string s = "";
+                /*while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }*/
+                return sr.ReadToEnd();
+            }
+            //return "";
         }
 
     }

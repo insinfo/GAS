@@ -19,9 +19,9 @@ using System.IO;
 
 namespace GAS2
 {
-    public partial class Main : Form
+    public partial class Gas : Form
     {
-        public Main()
+        public Gas()
         {
             InitializeComponent();
         }
@@ -120,10 +120,16 @@ namespace GAS2
 
         }
 
-        private void btnOpenDesigner_Click(object sender, EventArgs e)
+        private void BtnOpenDesigner_Click(object sender, EventArgs e)
         {
-            var teste = new Teste();
-            teste.Show();
+            var formGDI = new FormGDI();
+            formGDI.Show();
+        }
+
+        private void BtnShowDesigner_Click(object sender, EventArgs e)
+        {
+            var formChrome = new FormChrome();
+            formChrome.Show();
         }
     }
 }
