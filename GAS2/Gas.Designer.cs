@@ -1,6 +1,6 @@
 ﻿namespace GAS2
 {
-    partial class Main
+    partial class Gas
     {
         /// <summary>
         /// Variável de designer necessária.
