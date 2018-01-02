@@ -15,6 +15,7 @@ using DotNetBrowser.DOM;
 using DotNetBrowser.DOM.Events;
 using System.Diagnostics;
 using System.Reflection;
+using GAS2.UML;
 
 namespace GAS2
 {
@@ -23,12 +24,12 @@ namespace GAS2
         public FormChrome()
         {
             InitializeComponent();
-
-            string html = Util.OpenTextFile("Resources/umlCanvas.html");//Util.GetEmbeddedResource("GAS2", "UMLjs.html");
+            
+            /*string html = Util.OpenTextFile("Resources/umlCanvas.html");//Util.GetEmbeddedResource("GAS2", "UMLjs.html");
             BrowserView browserView = new WinFormsBrowserView();
             Controls.Add((Control)browserView);
 
-            Browser browser = browserView.Browser;//BrowserFactory.Create();
+            Browser browser = browserView.Browser;//BrowserFactory.Create();*/
             /*
             //ManualResetEvent waitEvent = new ManualResetEvent(false);
             browser.FinishLoadingFrameEvent += delegate (object sender, FinishLoadingEventArgs e)
@@ -93,26 +94,26 @@ namespace GAS2
 
                     //waitEvent.Set();
                 }
-            };*/
+            };*//*
             var correntPath = Assembly.GetExecutingAssembly().Location;
             var directory = System.IO.Path.GetDirectoryName(correntPath).Replace(@"\", "/");
             //AppDomain.CurrentDomain.BaseDirectory
             var filePath = directory + @"/Resources/umlCanvas.html";
             Debug.WriteLine(filePath);
-            browser.LoadURL(filePath);
-            //waitEvent.WaitOne();
+            browser.LoadHTML(Util.OpenTextFile(filePath));
+            //waitEvent.WaitOne();*/
 
-
+    
         }
 
         private void FormChrome_MouseDown(object sender, MouseEventArgs e)
         {
-            Console.Out.WriteLine("clicou");
+            Console.Out.WriteLine("clicou");          
         }
 
         private void FormChrome_MouseMove(object sender, MouseEventArgs e)
         {
-            Console.Out.WriteLine("moveu");
+            //Console.Out.WriteLine("moveu");
         }
 
         private void FormChrome_MouseUp(object sender, MouseEventArgs e)

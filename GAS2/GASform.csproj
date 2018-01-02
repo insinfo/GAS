@@ -121,6 +121,11 @@
     <Compile Include="My\Computer.cs" />
     <Compile Include="Parse\BuilderPHP.cs" />
     <Compile Include="Parse\TemplatesPHP.cs" />
+    <Compile Include="UML\CanvasUML.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UML\ClassUML.cs" />
+    <Compile Include="UML\ElementUML.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
