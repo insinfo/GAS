@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GAS2
+namespace GAS
 {
     [Serializable()]
     public class GraphicObjectCollection : List<GraphicObject>
@@ -256,7 +256,7 @@ namespace GAS2
             }
         }
 
-        public GraphicObject FindObjectAtPoint(GAS2.MyPoint pt)
+        public GraphicObject FindObjectAtPoint(GAS.MyPoint pt)
         {
             List<GraphicObject> objlist = new List<GraphicObject>();
 

@@ -1,0 +1,15 @@
+C:\MyProjectsCSharp\GAS\GAS\GAS\bin\x86\Debug\GAS.exe.config
+C:\MyProjectsCSharp\GAS\GAS\GAS\bin\x86\Debug\GAS.exe
+C:\MyProjectsCSharp\GAS\GAS\GAS\bin\x86\Debug\GAS.pdb
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\GASwpf.csprojResolveAssemblyReference.cache
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\MainWindow.g.cs
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\App.g.cs
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\GAS_MarkupCompile.cache
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\GAS_MarkupCompile.lref
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\MainWindow.baml
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\GAS.g.resources
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\GAS.Properties.Resources.resources
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\GASwpf.csproj.GenerateResource.Cache
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\GASwpf.csproj.CoreCompileInputs.cache
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\GAS.exe
+C:\MyProjectsCSharp\GAS\GAS\GAS\obj\x86\Debug\GAS.pdb

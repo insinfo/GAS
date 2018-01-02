@@ -1,0 +1,10 @@
+C:\MyProjectsCSharp\GAS\GAS\GAS2\bin\Release\GAS2.exe.config
+C:\MyProjectsCSharp\GAS\GAS\GAS2\bin\Release\GAS2.exe
+C:\MyProjectsCSharp\GAS\GAS\GAS2\bin\Release\GAS2.pdb
+C:\MyProjectsCSharp\GAS\GAS\GAS2\obj\Release\GAS2.csprojResolveAssemblyReference.cache
+C:\MyProjectsCSharp\GAS\GAS\GAS2\obj\Release\GAS2.Form1.resources
+C:\MyProjectsCSharp\GAS\GAS\GAS2\obj\Release\GAS2.Properties.Resources.resources
+C:\MyProjectsCSharp\GAS\GAS\GAS2\obj\Release\GAS2.csproj.GenerateResource.Cache
+C:\MyProjectsCSharp\GAS\GAS\GAS2\obj\Release\GAS2.csproj.CoreCompileInputs.cache
+C:\MyProjectsCSharp\GAS\GAS\GAS2\obj\Release\GAS2.exe
+C:\MyProjectsCSharp\GAS\GAS\GAS2\obj\Release\GAS2.pdb

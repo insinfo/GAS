@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GAS2
+namespace GAS
 {
     [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
     public interface IGraphicObject

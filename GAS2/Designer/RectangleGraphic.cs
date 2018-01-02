@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GAS2
+namespace GAS
 {
     [Serializable()]
     public class RectangleGraphic : GraphicObject

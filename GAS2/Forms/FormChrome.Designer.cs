@@ -1,4 +1,4 @@
-﻿namespace GAS2
+﻿namespace GAS
 {
     partial class FormChrome
     {
@@ -44,7 +44,7 @@
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.canvasUML2 = new GAS2.CanvasUML();
+            this.canvasUML2 = new GAS.CanvasUML();
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();

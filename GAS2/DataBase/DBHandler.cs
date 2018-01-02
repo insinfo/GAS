@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Npgsql;
 using System.Data;
 
-namespace GAS2
+namespace GAS
 {
     public class DBHandler
     {

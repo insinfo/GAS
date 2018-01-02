@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GAS2
+namespace GAS
 {
     class CanvasUML : UserControl
     {
@@ -30,38 +30,35 @@ namespace GAS2
             {
                 if (!DesignMode)
                 {
-                    this.Load += CanvasUML_Load;
+                    try
+                    {
+                        //carrega o renderizador HTML
+                        BrowserView browserView = new WinFormsBrowserView();
+                        Controls.Add((Control)browserView);
+                        browser = browserView.Browser;
+
+                        var correntPath = Assembly.GetExecutingAssembly().Location;
+                        var directory = System.IO.Path.GetDirectoryName(correntPath);//.Replace(@"\", "/");      
+                        var filePath = directory + @"/Resources/umlCanvas.html";
+
+                        //var config = Configuration.Default.WithDefaultLoader();
+                        //var dom = BrowsingContext.New(config).OpenAsync(filePath);
+                        var config = Configuration.Default;
+                        config.WithDefaultLoader();
+                        var parser = new HtmlParser(config);
+                        dom = parser.Parse(Util.OpenTextFile(filePath));
+                        //Debug.WriteLine("construtor");
+                        browser.LoadHTML(dom.Source.Text);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
         }
 
-        private void CanvasUML_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                //carrega o renderizador HTML
-                BrowserView browserView = new WinFormsBrowserView();
-                Controls.Add((Control)browserView);
-                browser = browserView.Browser;
-
-                var correntPath = Assembly.GetExecutingAssembly().Location;
-                var directory = System.IO.Path.GetDirectoryName(correntPath);//.Replace(@"\", "/");      
-                var filePath = directory + @"/Resources/umlCanvas.html";
-
-                //var config = Configuration.Default.WithDefaultLoader();
-                //var dom = BrowsingContext.New(config).OpenAsync(filePath);
-                var config = Configuration.Default;
-                config.WithDefaultLoader();
-                var parser = new HtmlParser(config);
-                dom = parser.Parse(Util.OpenTextFile(filePath));
-                //Debug.WriteLine("construtor");
-                browser.LoadHTML(dom.Source.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        
 
         private void UpdateView()
         {
@@ -69,7 +66,7 @@ namespace GAS2
         }
 
         public void DrawObjects()
-        {/*
+        {
             var config = Configuration.Default.WithCss();
             var parser = new HtmlParser(config);
             var dom = parser.Parse(@"<div class='draggableElement elementUMLContainer' style='                           
@@ -86,7 +83,7 @@ namespace GAS2
             //var style = elementUMLContainer.GetAttribute("style");
             elementUMLContainer.Style.Background = "rgb(30, 110, 255)";
             elementUMLContainer.AppendChild(dom.CreateElement("p"));
-            //elementUMLContainer.OuterHtml;*/
+            //elementUMLContainer.OuterHtml;
         }
 
         public void AddElement(ElementUML element)

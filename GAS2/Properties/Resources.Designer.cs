@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GAS2.Properties {
+namespace GAS.Properties {
     using System;
     
     

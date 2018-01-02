@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.IO;
 
-namespace GAS2
+namespace GAS
 {
     public class BuilderPHP
     {

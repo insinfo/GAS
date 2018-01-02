@@ -17,7 +17,7 @@ using Jint;
 using Npgsql;
 using System.IO;
 
-namespace GAS2
+namespace GAS
 {
     public partial class Gas : Form
     {

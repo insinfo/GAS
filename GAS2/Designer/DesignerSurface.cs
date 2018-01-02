@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Drawing.Text;
 
-namespace GAS2
+namespace GAS
 {
     public class DesignerSurface : UserControl
     {

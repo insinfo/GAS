@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace GAS2
+namespace GAS
 {
     [System.Serializable()]
     public abstract class GraphicObject 

@@ -1,4 +1,4 @@
-﻿namespace GAS2
+﻿namespace GAS
 {
     partial class FormGDI
     {
@@ -32,7 +32,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.viewPort = new GAS2.ViewPort();
+            this.viewPort = new GAS.ViewPort();
             this.BtnAddRectangle = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnSelectTool = new System.Windows.Forms.Button();

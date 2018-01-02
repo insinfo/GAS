@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GAS2
+namespace GAS
 {
     public class ViewPort : UserControl
     {

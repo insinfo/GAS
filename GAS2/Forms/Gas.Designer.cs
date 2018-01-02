@@ -1,4 +1,4 @@
-﻿namespace GAS2
+﻿namespace GAS
 {
     partial class Gas
     {

@@ -17,20 +17,20 @@ using System.Diagnostics;
 using System.Reflection;
 
 
-namespace GAS2
+namespace GAS
 {
     public partial class FormChrome : Form
     {
         public FormChrome()
         {
             InitializeComponent();
-            
-            /*string html = Util.OpenTextFile("Resources/umlCanvas.html");//Util.GetEmbeddedResource("GAS2", "UMLjs.html");
+            /*
+            string html = Util.OpenTextFile("Resources/umlCanvas.html");
             BrowserView browserView = new WinFormsBrowserView();
             Controls.Add((Control)browserView);
 
-            Browser browser = browserView.Browser;//BrowserFactory.Create();*/
-            /*
+            Browser browser = browserView.Browser;
+            
             //ManualResetEvent waitEvent = new ManualResetEvent(false);
             browser.FinishLoadingFrameEvent += delegate (object sender, FinishLoadingEventArgs e)
             {
@@ -43,9 +43,11 @@ namespace GAS2
                     double mouseStartPosY = 0;
                     bool isDragging = false;
                     DOMElement elementSelected = null;
-
+                    //the EventArgs DOM does not have the mouse position
                     body.AddEventListener(DOMEventType.OnClick, delegate (object se, DOMEventArgs ev)
-                    {/*
+                    {
+                        //I'm using a function in javascript to get the current mouse position, 
+                        //plus this has a devastating side effect, high overhead and low performace
                         JSValue mousePosFunc = browser.ExecuteJavaScriptAndReturnValue("getMousePos();");
                         mouseStartPosX = mousePosFunc.AsObject().GetProperty("x").GetNumber();
                         mouseStartPosY = mousePosFunc.AsObject().GetProperty("y").GetNumber();
@@ -58,10 +60,8 @@ namespace GAS2
                        
                     }, false);
 
-
                     body.AddEventListener(DOMEventType.OnMouseMove, delegate (object se, DOMEventArgs ev)
-                    {
-                        /*
+                    {                        
                         // get the current mouse position
                         JSValue mousePosFunc = browser.ExecuteJavaScriptAndReturnValue("getMousePos();");
                         double mousePosX = mousePosFunc.AsObject().GetProperty("x").GetNumber();
@@ -74,16 +74,14 @@ namespace GAS2
 
                         if (isDragging)
                         {
-                            //setElementPosition(idElement,x,y)
-                            browser.ExecuteJavaScript("setElementPosition('bloco',"+ dx+","+ dy+")");
-                            //elementSelected.TextContent = "x "+dx;
-                            //elementSelected.Y += dy;                          
+                            //here again I use a javascript function to set the position of the element because the "dotnetbrowser"
+                            //does not have an access method to the style object and there I can not define the position of the element via css
+                            browser.ExecuteJavaScript("setElementPosition('bloco',"+ dx+","+ dy+")");                                                    
                         }
 
                         // reset the starting mouse position for the next mousemove
                         mouseStartPosX = mousePosX;
-                        mouseStartPosY = mousePosY;
-                        
+                        mouseStartPosY = mousePosY;                        
                         
                     }, false);
 
@@ -94,15 +92,11 @@ namespace GAS2
 
                     //waitEvent.Set();
                 }
-            };*//*
-            var correntPath = Assembly.GetExecutingAssembly().Location;
-            var directory = System.IO.Path.GetDirectoryName(correntPath).Replace(@"\", "/");
-            //AppDomain.CurrentDomain.BaseDirectory
-            var filePath = directory + @"/Resources/umlCanvas.html";
-            Debug.WriteLine(filePath);
-            browser.LoadHTML(Util.OpenTextFile(filePath));
-            //waitEvent.WaitOne();*/
-
+            };          
+           
+            browser.LoadHTML(html);
+            //waitEvent.WaitOne();
+            */
     
         }
 

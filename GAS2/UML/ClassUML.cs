@@ -7,7 +7,7 @@ using AngleSharp.Parser.Html;
 using AngleSharp;
 using AngleSharp.Dom.Html;
 
-namespace GAS2
+namespace GAS
 {
     public class ClassUML : ElementUML
     {

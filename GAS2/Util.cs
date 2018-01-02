@@ -10,7 +10,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace GAS2
+namespace GAS
 {
     public class Util
     {
