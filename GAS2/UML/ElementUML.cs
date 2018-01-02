@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GAS2.UML
+namespace GAS2
 {
     public class ElementUML
     {
